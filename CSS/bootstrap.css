@@ -3,9 +3,12 @@ html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+
 }
 
 body {
+  background: url("../Images/background.png");
+  background-repeat : repeat;
   margin: 0;
 }
 
@@ -2824,6 +2827,9 @@ fieldset[disabled] a.btn {
   color: #fff;
   background-color: #d9534f;
   border-color: #d9534f;
+  display: inline-block;
+  margin: auto;
+  float: left;
 }
 
 .btn-danger:hover {
@@ -9324,6 +9330,10 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   margin: auto;
 }
 
+#supprimer {
+  display: inline;
+  float: left;
+}
 .col-centered {
   margin: auto;
 }
