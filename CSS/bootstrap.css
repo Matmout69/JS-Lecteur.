@@ -9334,13 +9334,14 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   display: inline;
   float: left;
 }
+
 .col-centered {
   margin: auto;
 }
 
 input[type=range] {
   -webkit-appearance: none;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 input[type=range]:focus {
   outline: none;

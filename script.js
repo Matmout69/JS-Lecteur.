@@ -20,12 +20,12 @@
     td.appendChild(document.createTextNode(url));
 
     var td2 = document.createElement("td");
-    var button = document.createElement("button");
-    button.setAttribute("type", "button");
-    button.setAttribute("class", "btn btn-danger");
-    button.setAttribute("id", "supprimer" + i);
-    button.innerHTML = "Supprimer";
-    td2.appendChild(button);
+    var btnSuppr = document.createElement("button");
+    btnSuppr.setAttribute("type", "button");
+    btnSuppr.setAttribute("class", "btn btn-danger");
+    btnSuppr.setAttribute("id", "supprimer" + i);
+    btnSuppr.innerHTML = "Supprimer";
+    td2.appendChild(btnSuppr);
 
     //On ajoute les colonnes à la ligne
     tr.appendChild(td);
@@ -34,6 +34,12 @@
     //On ajoute la ligne au tableau
     tableau.appendChild(tr);
 
+    //Fonction de suppression
+   btnSuppr.addEventListener("click", function() {
+      var btnId = this.getAttribute("id").substr(9);
+      var ligne = document.getElementById("ligne" + btnId);
+      ligne.parentNode.removeChild(ligne);
+    });
     //On incrémente l'ID
     i++;
   });
@@ -43,13 +49,15 @@
 
     //On récupère l'élément
     var play = document.getElementById("play");
-
+    var video = document.getElementById("lecteur");
     //Si la valeure du bouton est égale à Play, on lui attribue pause, sinon l'inverse
     if(play.textContent == "Play") {
       play.textContent = "Pause";
+      video.play();
     }
     else {
       play.textContent = "Play";
+      video.pause();
     }
   });
 
@@ -61,10 +69,8 @@
 
     //On le fait apparaître lorsque la souris bouge pour que l'utilisateur est une parfaite vision de ce qu'il fait
     document.getElementById("valVolume").textContent = volume;
+
+    document.getElementById("lecteur").volume = volume/100;
   });
 
-  //Fonction de suppression
-  document.getElementById("supprimer").addEventListener("click",function() {
-    var supprimer = document.
-  });
 })();
