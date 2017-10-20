@@ -61,7 +61,7 @@
     }
   });
 
-  //Fonction de vision du volume
+  //Fonction de gestion du volume
   document.getElementById("volume").addEventListener("mousemove", function() {
 
     //On récupère la valeur du volume
@@ -70,7 +70,9 @@
     //On le fait apparaître lorsque la souris bouge pour que l'utilisateur est une parfaite vision de ce qu'il fait
     document.getElementById("valVolume").textContent = volume;
 
+    //Réglage du volume
     document.getElementById("lecteur").volume = volume/100;
   });
 
+  //Fonction 
 })();
