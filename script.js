@@ -17,22 +17,47 @@
     tr.setAttribute("id", "ligne" + i);
 
     var td = document.createElement("td");
+    td.setAttribute("id", "src" + i);
     td.appendChild(document.createTextNode(url));
 
+    //Ajout de boutons up et down pour modifier l'ordre des éléments
     var td2 = document.createElement("td");
+    var btnUp = document.createElement("button");
+    var btnDown = document.createElement("button");
+    btnUp.setAttribute("type", "button");
+    btnUp.setAttribute("class", "btn btn-info");
+    btnUp.setAttribute("id", "up" + i);
+    btnUp.textContent = "↑";
+    td2.appendChild(btnUp);
+
+    btnDown.setAttribute("type", "button");
+    btnDown.setAttribute("class", "btn btn-info");
+    btnDown.setAttribute("id", "down" + i);
+    btnDown.textContent = "↓";
+    td2.appendChild(btnDown);
+
+    var td3 = document.createElement("td");
     var btnSuppr = document.createElement("button");
     btnSuppr.setAttribute("type", "button");
     btnSuppr.setAttribute("class", "btn btn-danger");
     btnSuppr.setAttribute("id", "supprimer" + i);
     btnSuppr.innerHTML = "Supprimer";
-    td2.appendChild(btnSuppr);
+    td3.appendChild(btnSuppr);
 
     //On ajoute les colonnes à la ligne
     tr.appendChild(td);
     tr.appendChild(td2);
+    tr.appendChild(td3);
 
     //On ajoute la ligne au tableau
     tableau.appendChild(tr);
+
+    //On ajoute la première vidéo ajoutée en source
+    var video = document.getElementById("lecteur");
+    var newsrc = tableau.rows[0].cells[0].textContent;
+    if (video.src.textContent == null) {
+    video.setAttribute("src", newsrc);
+  }
 
     //Fonction de suppression
    btnSuppr.addEventListener("click", function() {
@@ -50,7 +75,8 @@
     //On récupère l'élément
     var play = document.getElementById("play");
     var video = document.getElementById("lecteur");
-    //Si la valeure du bouton est égale à Play, on lui attribue pause, sinon l'inverse
+    /*Si la valeure du bouton est égale à Play, on lui attribue pause, sinon
+    l'inverse*/
     if(play.textContent == "Play") {
       play.textContent = "Pause";
       video.play();
@@ -67,12 +93,22 @@
     //On récupère la valeur du volume
     var volume = document.getElementById("volume").value;
 
-    //On le fait apparaître lorsque la souris bouge pour que l'utilisateur est une parfaite vision de ce qu'il fait
+    /*On le fait apparaître lorsque la souris bouge pour que l'utilisateur est
+    une parfaite vision de ce qu'il fait*/
     document.getElementById("valVolume").textContent = volume;
 
     //Réglage du volume
     document.getElementById("lecteur").volume = volume/100;
   });
 
-  //Fonction 
+  //Fonction de passage à la vidéo suivante
+  /*document.getElementById("suivant").addEventListener("click", function() {
+    var video = document.getElementById("lecteur");
+    var tableau = document.getElementById("tableau");
+    var newsrc = tableau.rows[1].cells[0].textContent;
+    video.setAttribute("src", newsrc);
+
+  });*/
+
+
 })();
