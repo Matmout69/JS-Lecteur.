@@ -2,6 +2,7 @@
 
   // Création d'une variable d'id pour différencier les vidéos
   var i = 1;
+  var j = 1;
 
   // Fonction d'ajout de vidéos
   document.getElementById("ajouter").addEventListener("click", function() {
@@ -51,6 +52,7 @@
 
     //On ajoute la ligne au tableau
     tableau.appendChild(tr);
+
 
     //On ajoute la première vidéo ajoutée en source
     var video = document.getElementById("lecteur");
@@ -102,13 +104,14 @@
   });
 
   //Fonction de passage à la vidéo suivante
-  /*document.getElementById("suivant").addEventListener("click", function() {
+    document.getElementById("suivant").addEventListener("click", function() {
     var video = document.getElementById("lecteur");
     var tableau = document.getElementById("tableau");
-    var newsrc = tableau.rows[1].cells[0].textContent;
+    var newsrc = tableau.rows[j].cells[0].textContent;
     video.setAttribute("src", newsrc);
+    j++;
 
-  });*/
+  });
 
 
 })();
