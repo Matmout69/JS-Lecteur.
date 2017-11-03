@@ -67,6 +67,29 @@
       var ligne = document.getElementById("ligne" + btnId);
       ligne.parentNode.removeChild(ligne);
     });
+
+    //Fonction pour le bouton Up
+    btnUp.addEventListener("click", function() {
+      var btnId = this.getAttribute("id").substr(2);
+      var ligne = document.getElementById("ligne" + btnId);
+      /* Cela aurait du être réalisé avec l'opérateur previousSibling, je n'ai
+      cependant pas réussi à le mettre en place avec mon tableau.
+      Je ne savais pas quoi récupérer exactement comme élément et comment
+      correctement l'appliqué malgré plusieurs tentatives et l'absence
+      de ressources sur internet n'utilisant pas JQuery. */ */
+    });
+
+    //Fonction pour le bouton Down
+    btnDown.addEventListener("click", function() {
+      var btnId = this.getAttribute("id").substr(4);
+      var ligne = document.getElementById("ligne" + btnId);
+      /* Cela aurait du être réalisé avec l'opérateur nextSibling, je n'ai
+      cependant pas réussi à le mettre en place avec mon tableau.
+      Je ne savais pas quoi récupérer exactement comme élément et comment
+      correctement l'appliqué malgré plusieurs tentatives et l'absence
+      de ressources sur internet n'utilisant pas JQuery. */
+    });
+
     //On incrémente l'ID
     i++;
   });
@@ -105,13 +128,20 @@
 
   //Fonction de passage à la vidéo suivante
     document.getElementById("suivant").addEventListener("click", function() {
+
+    //On recupère les éléments nécessaires
     var video = document.getElementById("lecteur");
     var tableau = document.getElementById("tableau");
+
+    //On crée une nouvelle variable qui prend en paramètre l'URL
     var newsrc = tableau.rows[j].cells[0].textContent;
+
+    //On attribue le nouvel URL à src
     video.setAttribute("src", newsrc);
+
+    //On incrémente pour que suivant passe à la suite
     j++;
 
   });
-
 
 })();
